@@ -41,6 +41,7 @@ int main(int argc,char *argv[])
                  printf("\n you can perform various magic arts with the sword");
                  printf("\n----------------------------------------------------");
                  break;
+                 
                 
          case 2:
                  printf("\n----------------------------------------------------");
