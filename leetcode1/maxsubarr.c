@@ -9,23 +9,26 @@ int maxSubArray(int* nums,int numsSize);
 
 int main(int argc,char * argv[])
 {    
-	int nums[]={-2,1,-3,4,-1,2,1,-5,4};
+	int nums[]={-1};
 	int numsSize=sizeof(nums)/sizeof(nums[0]);
    
-	maxSubArray(nums,numsSize);
+	int maxx=maxSubArray(nums,numsSize);
+	
+	printf("\n the max is %d",maxx);
 }
 
 int maxSubArray(int* nums,int numsSize)
 {
   
 	int sum=0;
-  	int max=0;
+  	int max=nums[0];
   	int ct=0;
   
   	loop:
   	if (ct == numsSize) 
    	{
-    		return 0; 
+    		return max; 
+    		
    	}
   
   	sum=0;
@@ -33,15 +36,16 @@ int maxSubArray(int* nums,int numsSize)
   	for(int i = ct; i <numsSize; i++)
      	{
        		sum = sum + nums[i];         
-       		printf("\n sum is %d",sum);
+       		//printf("\n sum is %d",sum);
+       		if(sum>max)
+       		{
+        		max=sum;
+       		}
      	}
      	ct=ct+1;
      
-      	if(sum>max)
-       	{
-        	max=sum;
-       	}
-      	printf("\n the max of the array is %d",max);      
+      
+      	//printf("\n the max of the array is %d",max);      
      	goto loop;   
      	printf("\n the sum is %d",sum);
     
