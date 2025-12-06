@@ -17,7 +17,7 @@ int prodmax(int* nums, int numsSize)
 	int maxprod=nums[0];
 	int currprod=0;
 
-    //applying kadane's algorithm
+    
 	for(int i=0;i<numsSize;i++)
 	{
 	        currprod=1;
