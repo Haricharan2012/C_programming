@@ -17,7 +17,7 @@ int search(int* nums,int numsSize,int target)
 	int low=0;
 	int high=numsSize-1;
 	
-	while(low<high)
+	while(low<=high)
 	{
          	int mid=low+(high-low)/2;
                 
@@ -26,17 +26,36 @@ int search(int* nums,int numsSize,int target)
                 	return mid;
                 }
                 
-                if(target>nums[mid])
+                //left half sorted
+                if(nums[low] <= nums[mid])
                 {
-                	low=mid+1;
-                }
+                	if(target >= nums[low] && target < nums[mid])   // check for target from low to mid
+                	{
+                		high=mid-1;                            //if target exits in left half 
+                	}
                 
-                else
-                {
-               		high=mid-1;
-               	}
-        }
+                	else
+                	{
+               			low =mid+1;
+               		}
+                }
+               
+                //right half is sorted
+               else
+               {
+               		if(target > nums[mid] && target <= nums[high])   //check for target from mid to high
+               		{
+               			low=mid+1;                              //if target exits in right half
+               		}
+               		else
+               		{	
+               			high=mid-1;
+               	        }
+                
+                }
+       
+          }
       return -1;
-  }
+ }
 	
 
