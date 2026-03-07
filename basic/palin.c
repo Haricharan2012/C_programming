@@ -4,7 +4,7 @@
 int main()
 {
 	char str1[10]="broom";
-	char rev[10]="";
+	char rev[10]="";=================
 	
 	int len=strlen(str1);
     
