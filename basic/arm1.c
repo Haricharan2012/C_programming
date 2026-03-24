@@ -3,39 +3,51 @@
 
 int main()
 {
-	int value;
-	int size;
+
+    for(int value=1;value<=100;value++)
+     {
+	//int value;
+	//int size;
 	int new=0;
-	int num;
+	int num=value;
+	int num2=value;
 	int rem=0;
-	printf("\n enter a number: ");
-	scanf("%d",&value);
-	
-	int ori=value;
-	
-	num=value;
 	int count=0;
+	int ori=value;
+	//printf("\n enter a number: ");
+	//scanf("%d",&value);
 	
-	while(value!=0)
-	{
-		value=value/10;
-		count=count+1;
-	}
-	size=count;
 	
-	//printf("\n the count val is %d",count);
-	printf("\n the size is %d",size);
-	printf("\n the num is %d",num);
 	
+	//num=value;
+	
+
+	//count number of digits//
 	while(num!=0)
 	{
-		rem=num%10;
 		num=num/10;
-		//new=new+(rem*rem*rem);
-		new=new+pow(rem,size);
-		printf("\n the rem is %d",rem);
-		printf("\n the num is %d",num);
+		count=count+1;
 	}
+	
+	//size=count;
+	//----------------------//
+	
+	
+	//printf("\n the count val is %d",count);
+	//printf("\n the size is %d",size);
+	//printf("\n the num is %d",num);
+	
+	while(num2!=0)
+	{
+		rem=num2%10;
+		num2=num2/10;
+		//new=new+(rem*rem*rem);
+		new=new+(int)pow(rem,count);
+		//printf("\n the rem is %d",rem);
+		//printf("\n the num is %d",num);
+	}
+	
+	
 	
 	printf("\n the number is %d",new);
 	if(new==ori)
@@ -46,6 +58,7 @@ int main()
 	{
 		printf("\n the number is not an armstrong number");
 	}
+      }
 	
 }
 		
