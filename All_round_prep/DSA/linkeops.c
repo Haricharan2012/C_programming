@@ -75,8 +75,8 @@ void insert_mid(struct node* prev,int data)
 		//allocate memory
 		struct node* newnode=struct node* malloc(sizeof(struct node));
 		newnode->data=data;
-		newnode->next=prev->next;
-		prev->next=newnode;
+		newnode->next=prev->next; //new node points to whatever previous node was pointing to
+		prev->next=newnode; //previous node points to new node
 	}
 }
 
@@ -86,7 +86,7 @@ void insert_end(struct node** head,int data)
 {
 	//ALLOCATE MEMORY
 	struct node* newnode=struct node* malloc(sizeof(struct node));
-	struct node* last=*head;
+	struct node* last=*head; //start from beginning
 	
 	newnode->data=data;
 	newnode->next=NULL; //supposed to be last node
@@ -98,6 +98,109 @@ void insert_end(struct node** head,int data)
 	last->next=newnode;
 	return;
 }
+
+//----------------------Deletion---------------------------------------------------//
+
+void deletenode(struct node **head,int key)
+{
+	struct node* temp=*head; 
+	struct node* prev;
+	
+	//if found in head//
+	if(temp!=NULL && temp->data==key)
+	{
+		
+		*head=temp->next;
+		free(temp);
+		return;
+	}
+	
+	//find key to be deleted
+	while(temp!=NULL && temp->data !=key)
+	{
+		prev=temp;
+		temp=temp->next;
+	}
+	
+	//if key not found
+	
+	if(temp==NULL)
+	{
+		return;
+	}
+	
+	//deletenode
+	prev->next=temp->next; //remove node , this points to whatever temp was pointing to
+	free(temp);
+}
+
+//----------------search node-----------------------//
+void search(struct node** head,int key)
+{
+	struct node* current=head //start from head
+	
+	while(current != NULL)
+	{
+		if(current->data==key)  //if element matches with key 
+		{
+			return1;
+		}
+		current=current->next;  //traverse through other elements
+	}
+		return 0;
+}
+
+
+//------------------sortlist------------------------//
+
+void sortlist(struct node* head)
+{
+	struct node* current=head; //start from head
+	struct node* index=NULL; //nxt element 
+	
+	int temp;
+	
+	if(head==NULL)
+	{
+		return;
+	}
+	else
+	{
+		while(current!=NULL)
+		{
+			index=current->next //points to next element 
+			
+			while(index!=NULL)
+			{
+				if(current->data>index->data)
+				{
+					temp=current->data;
+					current->data=index->data;
+					index->data=temp;
+				}
+				index=index->next;
+			}
+			current=current->next;
+		}
+	}
+}
+
+//----------------printlist------------------------//
+
+void printlist(struct node* node)
+{
+	while(node!=NULL)
+	{
+		printf("%d",node->data);
+		node=node->next;
+	}
+}
+	
+	
+	
+	
+	
+
 	
 	
 

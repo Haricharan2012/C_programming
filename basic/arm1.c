@@ -49,7 +49,7 @@ int main()
 	
 	
 	
-	printf("\n the number is %d",new);
+	printf("\n the number is %d",value);
 	if(new==ori)
 	{
 		printf("\n the number is an armstrong number");
