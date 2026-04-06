@@ -26,7 +26,7 @@ int main()
 	
 	printf("\n beyname : %s",beyptr->beyname);
 	printf("\n special_move : %s",beyptr->special_move);
-	printf("\n damage : %d",beyptr->damage);
+	printf("\n damage : %d\n",beyptr->damage);
 }
 
 

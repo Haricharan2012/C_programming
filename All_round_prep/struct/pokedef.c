@@ -20,13 +20,13 @@ int main()
 	printf("\n enter the name of your primary pokemon: ");
 	scanf("%s",poke1.name);
 	
-	printf("\n enter the type of %s ",poke1.name);
+	printf("\n enter the type of %s: ",poke1.name);
 	scanf("%s",poke1.type);
 	
-	printf("\n enter the level of %s ",poke1.name);
+	printf("\n enter the level of %s: ",poke1.name);
 	scanf("%d",&poke1.level);
 	
-	printf("\n enter the HP of %s ",poke1.name);
+	printf("\n enter the HP of %s: ",poke1.name);
 	scanf("%d",&poke1.hp);
 	
 	//------------------------------------------//
@@ -36,13 +36,13 @@ int main()
 	printf("\n enter the name of your secondary pokemon: ");
 	scanf("%s",poke2.name);
 	
-	printf("\n enter the type of %s ",poke2.name);
+	printf("\n enter the type of %s: ",poke2.name);
 	scanf("%s",poke2.type);
 	
-	printf("\n enter the level of %s ",poke2.name);
+	printf("\n enter the level of %s: ",poke2.name);
 	scanf("%d",&poke2.level);
 	
-	printf("\n enter the HP of %s ",poke2.name);
+	printf("\n enter the HP of %s: ",poke2.name);
 	scanf("%d",&poke2.hp);
 	
 	//------------------------------------------//

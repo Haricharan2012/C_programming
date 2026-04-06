@@ -16,13 +16,13 @@ int main()
 {
 	
 	
-	printf("\n enter student's name:");
+	printf("\n enter student's name: ");
 	scanf("%s",stud.name);
 	
-	printf("\n enter roll_no");
+	printf("\n enter roll_no: ");
 	scanf("%d",&stud.rollno);
 
-	printf("\n enter marks:");
+	printf("\n enter marks: ");
 	scanf("%f",&stud.marks);
 
 	printf("\n enter sec: ");
@@ -33,6 +33,6 @@ int main()
 	printf("\n name is %s",stud.name);
 	printf("\n rollno is %d",stud.rollno);
 	printf("\n marks is %f",stud.marks);
-	printf("\n sec is %c",stud.sec);
+	printf("\n sec is %c \n",stud.sec);
 }
 	

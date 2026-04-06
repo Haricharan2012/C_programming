@@ -25,10 +25,16 @@ int main()
 	
 	str[count]='\0';
 	
-	for(int i=count;i>0;i--)
+	int rcount=count;
+	char revst[20];
+	
+	for(int i=count-1,j=0;i>=0,j<=rcount;i--,j++)
 	{
+		revst[j]=str[i];
+	}
+	
+	revst[rcount]='\0';
+	
+	printf("\n the string is %s",revst);
 		
-	
-	printf("\n the string is %s",str);
-	
 }
