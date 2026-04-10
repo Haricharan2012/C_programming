@@ -18,10 +18,9 @@ int main()
 	
 	intp=num-floatp;
 	
-	printf("\n the int part is %f",intp);
+	int nintp=(int)(intp);
+	int nfloat=(int)(floatp);
 	
-	int newv=floor(intp);
-	
-	printf("\n the int part is %d",intp);
-
+	printf("\n the int part is %d",nintp);
+	printf("\n the float part is %d",nfloat);
 }
