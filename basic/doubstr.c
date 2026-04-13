@@ -68,6 +68,17 @@ int main()
 		count=count+1;
 	}
 	
+	fstr[count]='\0';
+	
+	
+	for(int i=strlen(str)-1;i>=0;i--,j++)
+	{
+		tstr[j]=str[i];
+		
+	}
+	
+	
+	
 	
 		
 		
