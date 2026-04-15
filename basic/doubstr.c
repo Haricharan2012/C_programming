@@ -68,24 +68,20 @@ int main()
 		count=count+1;
 	}
 	
-	fstr[count]='\0';
 	
+	int k= strlen(tstr)+1;
 	
 	for(int i=strlen(str)-1;i>=0;i--,j++)
 	{
-		tstr[j]=str[i];
+		tstr[k]=fstr[i];
 		
 	}
 	
+	tstr[count]='\0';
+	  
+	printf("\n the final string is %s",tstr);
 	
-	
-	
-		
-		
-	
-	
-	
-	
+
 }
 
  
