@@ -91,7 +91,7 @@ int dequeue()
 		}
 	}
 	
-}
+} 
 
 void display()
 {
@@ -112,7 +112,7 @@ void display()
 	}
 }
 	
-
+```
 
 		
 
