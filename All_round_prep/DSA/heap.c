@@ -1,41 +1,51 @@
 #include<stdio.h>
 
-void swap(int el1,int el2);
+void swap(int *el1,int *el2);
 void heapify(int arr[],int size,int i);
 void insert(int arr[],int num);
 void delete(int arr[],int num);
-void disp();
+void disp(int arr[],int size);
 
-void main()
+int size=0;
+
+int main()
 {
 	int array[10];
 	
 	//--insertion--//
 	
 	insert(array,3);
-	insert(array,2);
-	insert(array,7);
-	insert(array,5);
-	insert(array,8);
 	insert(array,9);
+	insert(array,2);
+	insert(array,1);
+	insert(array,4);
+	insert(array,5);
 	
-	printf("\n the Max heap is: ");
-	disp();
+	printf("\n the Max heap is: \n");
+	disp(array,size);
 	
-	delete(array,8);
+	insert(array,7);
 	
-	printf("\n heap after deletion is: ");
-	disp();
+	printf("\n after inserting the heap is: \n");
+	disp(array,size);
+	
+	
+	delete(array,3);
+	
+	printf("\n heap after deletion is: \n");
+	disp(array,size);
+	
+	return 0;
 	
 }
 
 //-------------SWAP----------------------//
 
-void swap(int el1,int el2)
+void swap(int *el1,int *el2)
 {
-	int temp=el1;
-	el1=el2;
-	el2=temp;
+	int temp=*el1;
+	*el1=*el2;
+	*el2=temp;
 }
 
 
@@ -45,8 +55,8 @@ void heapify(int array[],int size,int i)
 {
 	int largest=i;
 	
-	int leftcd = 2i+1;
-	int rightcd = 2i+2;
+	int leftcd = 2*i+1;
+	int rightcd = 2*i+2;
 	
 	if(leftcd<size && array[leftcd]>array[largest])
 	{
@@ -74,7 +84,7 @@ void insert(int array[],int newnum)
 	int current = size-1;// lqst ele
 	while(current!=0)
 	{
-		int parent=(curent-1)/2;
+		int parent=(current-1)/2;
 		if(array[current]>array[parent])
 			{
 				swap(&array[current],&array[parent]);
@@ -89,7 +99,7 @@ void insert(int array[],int newnum)
 
 
 //-------------deletion--------------//
-void deletion(int array[],int num)
+void delete(int array[],int num)
 {
 	for(int i=0;i<size;i++)
 	{
@@ -97,6 +107,13 @@ void deletion(int array[],int num)
 		{
 			break;
 		}
+		
+		if(array[i]==size)
+		{
+			printf("\n element not found to delete");
+			return;
+		}
+			
 		swap(&array[i],&array[size-1]);
 		//swap element to be deleted with last element in the heap
 		
@@ -112,9 +129,9 @@ void deletion(int array[],int num)
 
 //---------------display------------//
 
-void display()
+void disp(int array[],int size)
 {
-	for(int i=0;i<size;i++)
+	for(int i=0;i<size;++i)
 	{
 		printf("%d ",array[i]);
 		printf("\n");
