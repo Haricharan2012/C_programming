@@ -128,6 +128,7 @@ int main()
 				//printf("\n front is %d",front);
 				printf("|%d|",items[rear]);
 			}
+			printf("\n");
 		}
 	
 
