@@ -14,12 +14,12 @@ int main()
 	
 	//--insertion--//
 	
-	insert(array,3);
+	insert(array,4);
 	insert(array,9);
 	insert(array,2);
 	insert(array,1);
-	insert(array,4);
 	insert(array,5);
+	insert(array,6);
 	
 	printf("\n the Max heap is: \n");
 	disp(array,size);
@@ -30,7 +30,7 @@ int main()
 	disp(array,size);
 	
 	
-	delete(array,3);
+	delete(array,4);
 	
 	printf("\n heap after deletion is: \n");
 	disp(array,size);
@@ -99,31 +99,29 @@ void insert(int array[],int newnum)
 
 
 //-------------deletion--------------//
-void delete(int array[],int num)
+void delete(int array[], int num)
 {
-	for(int i=0;i<size;i++)
-	{
-		if(array[i]==num) //element found
-		{
-			break;
-		}
-		
-		if(array[i]==size)
-		{
-			printf("\n element not found to delete");
-			return;
-		}
-			
-		swap(&array[i],&array[size-1]);
-		//swap element to be deleted with last element in the heap
-		
-		size=size-1; //decrement to delete element from heap
-		
-		if(i<size)
-		{
-			heapify(array,size,i); //heapify from the current index to adjust the rest of the heap
-		}
-	}
+ 	int i;
+
+    	for(i = 0; i < size; i++)
+    	{
+        	if(array[i] == num)
+       		 {
+            		break;
+            	 }
+    	}
+
+   	 if(i == size)
+   	 {
+       		 printf("\nElement not found to delete");
+       	 	return;
+  	  }
+
+   	 swap(&array[i], &array[size - 1]);
+
+   	 size--;
+
+    	heapify(array, size, i);
 }
 
 
