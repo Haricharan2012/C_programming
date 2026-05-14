@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-void sawp(int *el1, int *el2);
+void swap(int *el1, int *el2);
 void heapify(int arr[],int size,int i);
 void insertion(int arr[],int new);
 void deletion(int arr[],int num);
@@ -8,42 +8,62 @@ void disp(int arr[],int size);
 
 int size=0;
 
-void main()
+int main()
 {
 	int array[10];
 	int choice;
-	printf("\n--------Priority_Queue--------");
-	printf("\n1.------insertion-------------");
-	printf("\n2.------Deletion--------------");
-	printf("\n3.------display---------------");
-	printf("\n Enter your choice");
-	scanf("%d",&choice");
 	
-	switch(choice)
+	while(1)
 	{
-		case 1: printf("\n Insertion ");
-			int new;
-			printf("\n enter the element to be inserted: ");
-			scanf("%d",&new);
-			insertion(array,new);
-			break;
+		printf("\n------------Priority_Queue_implementation----------");
+		printf("\n");
+		printf("\n1.------insertion-------------");
+		printf("\n");
+		printf("\n2.------Deletion--------------");
+		printf("\n");
+		printf("\n3.------display---------------");
+		printf("\n");
+		printf("\n Enter your choice ");
+		scanf("%d",&choice);
+	
+		switch(choice)
+		{
+			case 1:
+			{
+				printf("\n ---------------------Insertion ------------------------");
+				printf("\n");
+				int new;
+				printf("\n enter the element to be inserted: ");
+				scanf("%d",&new);
+				insertion(array,new);
+				break;
+			}
+				
+			case 2:
+			{
+				printf("\n--------------------- Deletion----------------------------");
+				printf("\n");
+				int num;
+				printf("\n enter the element to be deleted: ");
+				scanf("%d",&num);
+				deletion(array,num);
+				break;
+			}
 			
-		case 2: printf("\n Deletion ");
-			int num;
-			printf("\n enter the element to be deleted: ");
-			scanf("%d",&num);
-			deletion(array,num);
-			break;
+			case 3:
+			{
+				 printf("\n ----------------- Queue_display--------------------------");
+				 printf("\n");
+				 disp(array,size);
+				 break;	
+			}		
 			
-		case 3: printf("\n Queue_display");
-			disp(array,size);
-			break;
-			
-		
-		default : printf("\n entered option does not exist, try again :) ");
-			  break;
-			  
+			default : printf("\n entered option does not exist, try again!");
+				  break;
+				  
+		}
 	}
+	return 0;
 }
 
 
@@ -74,7 +94,7 @@ void heapify(int array[],int size,int i)
 	
 	if(largest!=i)
 	{
-		swap(&array[i],&array[largest];
+		swap(&array[i],&array[largest]);
 		heapify(array,size,largest);
 	}
 }
@@ -82,17 +102,24 @@ void heapify(int array[],int size,int i)
 
 void insertion(int array[],int new)
 {
-	if(size==0)  //if array is empty
+
+	if(size==10)
+	{
+		printf("\n queue is Full");
+	}
+	
+	else if(size==0)  //if array is empty
 	{
 		array[0]=new;
 		size=size+1; 
 	}
+		
 	else
 	{
 		array[size]=new; // if array has element then addon to it 
 		size=size+1;    //increment the size to accomodate the new element
 		
-		for(intr i=size/2-1;i>=0;i--)
+		for(int i=size/2-1;i>=0;i--)
 		{
 			heapify(array,size,i);
 		}
@@ -102,12 +129,29 @@ void insertion(int array[],int new)
 
 void deletion(int array[],int num)
 {
-	for(int i=0;i<size;i++)
+
+	if(size==0)
+	{
+		printf("\n queue is empty");
+		return;
+	}
+	
+	
+	int i;
+	for( i=0;i<size;i++)
 	{
 		if(num==array[i])
 		{
 			break;
 		}
+	}
+	
+	//Element not found
+	
+	if(i==size)
+	{
+		printf("\n element not found in queue");
+		return;
 	}
 	
 	swap(&array[i],&array[size-1]); //swap element to be deleted with the LAST element
@@ -126,7 +170,7 @@ void disp(int array[],int size)
 {
 	for(int i=0;i<size;i++)
 	{
-		printf("%d",array[i]);
+		printf("|%d|",array[i]);
 	}
 	printf("\n");
 }
