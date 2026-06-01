@@ -6,7 +6,7 @@ void add_front(int*,int,int*,int*);
 void add_rear(int*,int,int*,int*);
 int del_front(int*,int*,int*);
 int del_rear(int*,int*,int*);
-void disp(int*);
+void disp(int*,int,int);
 int count(int*);
 
 int main()
@@ -16,7 +16,7 @@ int main()
 	int i,n;
 	int choice;
 	
-	front=rear=-1 // deque empty
+	front=rear=-1; // deque empty
 	
 	for(i=0;i<MAX;i++)
 	{
@@ -31,6 +31,8 @@ int main()
 		printf("\n------------3. Delete_front-----------------------");
 		printf("\n------------4. Delete_rear-----------------------");
 		printf("\n------------5. Display elements-------------------");
+		printf("\n------------6. exit ------------------------------");
+		printf("\n");
 		
 		printf("\n enter your choice: ");
 		scanf("%d",&choice);
@@ -48,7 +50,7 @@ int main()
 	                case 2 : printf("\n------------Add_rear-----------------");
 		       		int ele2;
 		       		printf("\n enter the element to be inserted: ");
-		       		scanf("%d",ele2);
+		       		scanf("%d",&ele2);
 		       		add_rear(arr,ele2,&front,&rear);
 		       		break;
 		       		
@@ -65,8 +67,10 @@ int main()
 		       	       break;
 		       	       
 		      case 5 : printf("\n -----------Display--------------------");
-		       	       disp(arr);
+		       	       disp(arr,front,rear);
 		       	       break;
+		       	       
+		      case 6 : return 0;
 		       	       
 		     default : printf("\n invalid choice try again");
 		      	       break;
@@ -81,9 +85,10 @@ void add_front(int *arr,int item,int *pfront,int *prear)
 	
 	int cn;
 	int tm;
+	
 	//check if queue is full
 	
-	if(*pfront==0 && *prear=MAX-1)
+	if(*pfront==0 && *prear==MAX-1)
 	{
 		printf("\n dequeue is full");
 		return;
@@ -91,7 +96,7 @@ void add_front(int *arr,int item,int *pfront,int *prear)
 
 	// if queue is empty
 	
-	if( *pfront=-1)
+	if( *pfront==-1)
 	{
 		*pfront=*prear=0; //both front and rear point to first index of array
 		arr[*pfront]=item; //element entered in first index
@@ -109,15 +114,16 @@ void add_front(int *arr,int item,int *pfront,int *prear)
 		
 		//shift elements 1 step right
 		
-		for(i=1;i<count;i++)
+		for(int i=*prear;i>=*pfront;i--)
 		{
-			arr[tm]=arr[tm-1];
-			tm--;
+			arr[i+1]=arr[i];
+			
 		}
 		
-		arr[tm]=item;
+		//arr[xtm]=item;
 		
-		*pfront=tm; //update front position
+		arr[*pfront]=item; //update front position
+		
 		
 		(*prear)++; //increase rear index
 		
@@ -137,17 +143,18 @@ void add_rear(int *arr, int item,int *pfront,int *prear)
 {
 	//check if dequeu is full
 	
-	if(*pfront==0 && *prear==MAX--1)
+	if(*pfront==0 && *prear==MAX-1)
 	{
 		printf("\n deque is full");
 	}
 	
 	//check if deque is empty
 	
-	if(*pfront=-1)
+	if(*pfront==-1)
 	{
 		*pfront=0;
 		*prear=0;
+		arr[*prear]=item;
 		return;
 	}
 	
@@ -184,7 +191,7 @@ void add_rear(int *arr, int item,int *pfront,int *prear)
 		(*pfront)--;
 	}
 		
-		(*prear)++ //move rear forward for inserting element
+		(*prear)++; //move rear forward for inserting element
 		
 		arr[*prear]=item; // add item to the rear pos
 }
@@ -207,9 +214,20 @@ int del_front(int *arr,int *pfront,int *prear)
 	
 	arr[*pfront]=0;
 	
-	//move pointer forward
-	(*pfront)++;
+	//if only one element exists
+	if(*pfront==*prear)
+	{
+		arr[*pfront]=0;
+		*pfront=*prear=-1;
+		
+	}
+	else
+	{
 	
+	//move pointer forward
+	arr[*pfront]=0;
+	(*pfront)++;
+	}
 	return item;
 }
 
@@ -229,23 +247,37 @@ int del_rear(int *arr,int *pfront,int *prear)
 	
 	//clear rear position to zero
 	
-	arr[*prear]=0;
+	//arr[*prear]=0;
 	
-	//decrement rear 
-	
-	(*prear)--;
+	if(*pfront==*prear)
+	{
+		arr[*prear]=0;
+		*pfront=-1;
+		*prear=-1;
+	}
+	else
+	{
+		arr[*prear]=0;
+		(*prear)--;
+	}
 	
 	return item;
 }
 
-void disp(int *arr)
+void disp(int *arr,int front,int rear)
 {
-	printf("\n front: " );
-	for(int i=0;i<MAX;i++)
+	
+	printf("\n");
+	for(int i = front; i <= rear; i++)
 	{
-		printf("%d",arr[i]);
+		
+		printf(" |%d|", arr[i]);
 	}
-	printf("\n  :rear");
+	
+	printf("\n");
+	
+	printf("\n front:%d ",front );
+	printf("\n %d :rear",rear );
 }
 
 int count(int *arr)
@@ -258,8 +290,9 @@ int count(int *arr)
 		{
 			c=c+1;
 		}
-		return c;
+		
 	}
+	return c;
 }
 	
 	
