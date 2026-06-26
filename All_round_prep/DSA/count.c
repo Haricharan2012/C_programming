@@ -4,10 +4,25 @@ void disp(int*,int);
 
 void main()
 {
-	int arr[]={4,2,2,3,3,1};
-	int size=sizeof(arr)/sizeof(arr[0]);
-	countsort(arr,size);
-	disp(arr,size);
+	
+	int sz;
+	
+	printf("\n enter the size of the array elements");
+	scanf("%d",&sz);
+	
+	int arr[sz];
+	
+	printf("\n enter the elements of the array : ");
+	
+	for(int i=0;i<sz;i++)
+	{
+		scanf("%d",&arr[i]);
+	}
+	
+	
+	//int size=sizeof(arr)/sizeof(arr[0]);
+	countsort(arr,sz);
+	disp(arr,sz);
 }
 
 void countsort(int arr[], int size)
@@ -57,7 +72,7 @@ void countsort(int arr[], int size)
 	for(int i=size-1;i>=0;i--)
 	{
 		output[count[arr[i]]-1]=arr[i]; //placing element in position according to occurance
-		count[arr[i]]=count[arr[i]]-1;
+		count[arr[i]]=count[arr[i]]-1;  //decrement count of each ele after placement
 	}
 
 	//copy sorted array into original array
@@ -71,10 +86,14 @@ void countsort(int arr[], int size)
 
 void disp(int arr[],int size)
 {
+	printf("\n");
+	printf("\n the sorted array is: ");
 	for(int i=0;i<size;i++)
 	{
+		
 		printf("%d ",arr[i]);
 	}
+	printf("\n");
 }
 
 
