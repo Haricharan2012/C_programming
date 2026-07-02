@@ -2,7 +2,7 @@
 
 void radix_sort(int*,int);
 void count_sort(int*,int,int);
-void disp();
+void disp(int*,int);
 
 int main()
 {
@@ -21,7 +21,7 @@ int main()
 	
 	radix_sort(arr,size);
 	
-	disp();
+	disp(arr,size);
 }
 
 
@@ -49,13 +49,13 @@ void radix_sort(int arr[],int size)
 void count_sort(int arr[],int size,int place)
 {
 	int output[size]; //array for storing output
-	int count[10]; //array for storing count/occurances of elements
+	int count[10]={0}; //array for storing count/occurances of elements
 	
  	//calculate occurance of elements
  	for(int i=0;i<size;i++)
  	{
  		int index=(arr[i]/place)%10; //extract digit from arr element 
- 		count=count[index]+1;
+ 		count[index]=count[index]+1;
  	}
  	
  	//calculate cumulative count
