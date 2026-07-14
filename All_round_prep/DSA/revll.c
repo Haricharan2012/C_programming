@@ -122,7 +122,39 @@ void rev_list()
 			head=head->next; //move to sucessive elements
 			currnode->next=prevnode; //connect currnode to previous node
 			prevnode = currnode; // prevnode now points to currnode
-			currnode = head;
+			currnode = head; //make currnode point to head
+		}
+		
+		head = prevnode; //make last node as head
+		printf("\n succesfully reversed");
+	}
+}
+
+
+
+void disp()
+{
+	struct node *temp;
+	
+	//if list is emty head  null
+	
+	if(head==NULL)
+	{
+		printf("\n list is empty");
+	}
+	else
+	{
+		temp=head;
+		while(temp!=NULL)
+		{
+			printf("\n data = %d\n",temp->data);
+			temp=temp->next;
+		}
+	}
+}
+		
+		
+		
 			
 		
 	
