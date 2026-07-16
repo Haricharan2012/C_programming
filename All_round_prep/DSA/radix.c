@@ -60,7 +60,7 @@ void count_sort(int arr[],int size,int place)
  	
  	//calculate cumulative count
  	
- 	for(int i=0;i<size;i++)
+ 	for(int i=1;i<10;i++)
  	{
  		count[i]=count[i]+count[i-1];
  	}
@@ -91,8 +91,9 @@ void disp(int arr[],int size)
 	printf("\n the sorted array is:  ");
 	for(int i=0;i<size;i++)
 	{
-		printf("%d",arr[i]);
+		printf("%d  ",arr[i]);
 	}
+	printf("\n");
 }
 	
 	
