@@ -54,7 +54,10 @@ int main()
 		}
 		else
 		{
-			front=0;
+			if(front==-1)
+			{
+				front=0;
+			}
 			rear=rear+1;
 			items[rear]=val;
 			printf("\n value inserted");
