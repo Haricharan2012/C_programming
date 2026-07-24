@@ -18,7 +18,7 @@ void printlist(struct node *node);
 
 
 int main()
-{
+{ 
 	struct node* head=NULL;
 		
 	//insertion//
@@ -29,7 +29,9 @@ int main()
 	insert_mid(head->next,4);
 	insert_end(&head,5);
 	
-	//print
+	//print]
+	
+	1
 	printf("\n the linked list is");
 	printf("\n");
 	printlist(head);
