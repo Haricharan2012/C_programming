@@ -4,7 +4,7 @@
 // Sorts intervals based on their starting value
 int compare(const void *a, const void *b)   // qsort passes adresses of  pointers to a and b
 {
-    int *interval1 = *(int **)a;      // First interval
+    int *interval1 = *(int **)a;      // First interval   // Go to address 'a' and fetch the int* stored there.
     int *interval2 = *(int **)b;      // Second interval
 
     return interval1[0] - interval2[0];   // Compare starting points
@@ -15,14 +15,15 @@ int compare(const void *a, const void *b)   // qsort passes adresses of  pointer
  * The sizes of the arrays are returned as *returnColumnSizes array.
  * Note: Both returned array and *returnColumnSizes must be malloced.
  */
-int** merge(int** intervals,              // intervals is an array of int* each pointer points to one interval
+int** merge(int** intervals,              // intervals is an array of int* each pointer points to one interval(array of pointers)
             int intervalsSize,
             int* intervalsColSize,
             int* returnSize,
             int** returnColumnSizes)
 {
 
-    // If no intervals are present
+    // If no intervals are presen\
+   
     if(intervalsSize == 0)
     {
         *returnSize = 0;
