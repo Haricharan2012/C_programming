@@ -6,7 +6,7 @@
 struct node
 {
 	int data; //data part
-	struct node *next  // address part
+	struct node *next; // address part
 }*head;
 
 
@@ -28,7 +28,7 @@ int main()
 	printf("\n the original list is : ");
 	disp();
 	
-	printf("\n press 1 to reverse the list"):
+	printf("\n press 1 to reverse the list");
 	scanf("%d",&choice);
 	
 	if(choice==1)
@@ -56,7 +56,7 @@ void create_list(int num)
 	
 	//allocate memory to head
 	
-	head=(struct node*)malloc(sizeof(struct node);
+	head=(struct node*)malloc(sizeof(struct node));
 	
 	//if allocation failed
 	
@@ -77,10 +77,10 @@ void create_list(int num)
 		
 		//create n nodes and add to the linked list
 		
-		for(i=2;i<=n;i++)
+		for(i=2;i<=num;i++)
 		{
 			//allocate memory for newnode
-			newnode=(struct node*)malloc(sizeof(struct node);
+			newnode=(struct node*)malloc(sizeof(struct node));
 			
 			//if allocation was not possible
 			if(newnode==NULL)
@@ -104,12 +104,13 @@ void create_list(int num)
 			printf("singly linked list created sucessfully");
 		}
 	}
+}
 	
 void rev_list()
 {
 	struct node *prevnode,*currnode;
 	
-	if(head!=null)
+	if(head!=NULL)
 	{
 		prevnode = head; //prevnode should point to first node
 		currnode = head->next; //current node should point to second node
