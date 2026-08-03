@@ -25,8 +25,12 @@ int main()
 	scanf("%d",&num);
 	create_list(num);
 	
+	printf("\n");
 	printf("\n the original list is : ");
+	printf("\n");
 	disp();
+	
+	printf("\n");
 	
 	printf("\n press 1 to reverse the list");
 	scanf("%d",&choice);
@@ -36,7 +40,9 @@ int main()
 		rev_list();
 	}
 	
+	
 	printf("\n the reversed list is : ");
+	printf("\n");
 	disp();
 	
 	return 0;
@@ -101,8 +107,10 @@ void create_list(int num)
 				temp=temp->next; //for traversal of list
 				
 			}
-			printf("singly linked list created sucessfully");
+			
 		}
+		printf("\n");
+		printf("singly linked list created sucessfully");
 	}
 }
 	
@@ -128,6 +136,7 @@ void rev_list()
 		
 		head = prevnode; //make last node as head
 		printf("\n succesfully reversed");
+		printf("\n");
 	}
 }
 
@@ -146,11 +155,14 @@ void disp()
 	else
 	{
 		temp=head;
+		printf("\n");
 		while(temp!=NULL)
 		{
-			printf("\n data = %d\n",temp->data);
+			printf("%d->",temp->data);
 			temp=temp->next;
 		}
+	        printf("NULL\n");
+		printf("\n");
 	}
 }
 		
