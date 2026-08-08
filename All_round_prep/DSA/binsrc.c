@@ -29,6 +29,7 @@ int main()
 	else
 	{
 		printf("\n element found in loc %d",result);
+		printf("\n");
 	}
 	
 	return 0;
