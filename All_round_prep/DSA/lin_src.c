@@ -17,7 +17,7 @@ int main()
 		scanf("%d",&arr[i]);
 	}
 	
-	printf("\n enter the item top be found");
+	printf("\n enter the item to be found");
 	scanf("%d",&item);
 	
 	int result = lin_src(arr,size,item);
@@ -29,6 +29,7 @@ int main()
 	else
 	{
 		printf("\n elements are found at loc %d",result);
+		printf("\n");
 	}
 }
 
