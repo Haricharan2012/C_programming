@@ -169,7 +169,7 @@ char adc_init(char adc, short port, short pin)
         // I_AN -> analog input configuration
         //
         // This is important because an ADC pin should be configured
-        // as an analog input rather than as a normal digital input.
+        // as  an analog input rather than as a normal digital input.
 
 
         if(adc == adc1)
