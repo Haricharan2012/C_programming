@@ -41,11 +41,10 @@ int main()
 	int x;  //source
 	int y;  //dest
 	
+	
 	//print heading 
 	
 	printf("Edge : weight\n");
-	
-	
 	
 	//mst for v vertices contain v-1 edges
 	
