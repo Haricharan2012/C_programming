@@ -21,7 +21,9 @@ int main()
 	printf("\n 2. rectangle");
 	printf("\n 3. square");
 	printf("\n 4. triangle");
-	printf("\n enter your choice");
+	printf("\n 5. exit");
+	printf("\n -----------");
+	printf("\n enter your choice  ");
 	scanf("%d",&choice);
 	
 	
@@ -32,7 +34,7 @@ int main()
 			printf("--------------------------------------");
 			int r;
 			float pi=3.14;
-			printf("\n enter the radius of the circle");
+			printf("\n enter the radius of the circle  ");
 			scanf("%d",&r);
 			circlex(r,pi);
 			break;
@@ -42,9 +44,9 @@ int main()
 			printf("\n");
 			printf("--------------------------------------");
 			int l,br;
-			printf("\n enter the length of the rectangle");
+			printf("\n enter the length of the rectangle  ");
 			scanf("%d",&l);
-			printf("\n enter the breadth of the rectangle");
+			printf("\n enter the breadth of the rectangle  ");
 			scanf("%d",&br);
 			rectx( l, br);
 			break;
@@ -54,21 +56,21 @@ int main()
 			printf("\n");
 			printf("--------------------------------------");
 			int s;
-			printf("\n enter the side of a square");
+			printf("\n enter the side of a square  ");
 			scanf("%d",&s);
 			squarex(s);
 			break;
 			
-		case 4: printf("\n the perimeter and area of a rectangle");
+		case 4: printf("\n the perimeter and area of a triangle");
 			printf("\n");
 			printf("--------------------------------------");
 			
 			int a,b,c,h;
 			
-			printf("\n enter all three sides of triangle");
+			printf("\n enter all three sides of triangle  ");
 			scanf("%d %d %d",&a,&b,&c);
 			
-			printf("\n enter height of a triangle");
+			printf("\n enter height of a triangle  ");
 			scanf("%d",&h);
 			
 			trianglex(a,b,c,h);
@@ -134,7 +136,7 @@ void squarex(int x)
 	printf("\n perimeter of square is %d",per);
 	printf("\n");
 	printf("--------------------------------------");
-	printf("\n area of rectangle is %d", area);
+	printf("\n area of square is %d", area);
 	printf("\n");
 	printf("--------------------------------------");
 	printf("\n");
@@ -144,7 +146,8 @@ void squarex(int x)
 
 void trianglex(int a,int b,int c,int h)
 {
-	int per,area;
+	int per;
+	float area;
 	
 	per=a+b+c;
 	area= 0.5 *b*h;
@@ -152,7 +155,7 @@ void trianglex(int a,int b,int c,int h)
 	printf("\n perimeter of triangle is %d",per);
 	printf("\n");
 	printf("--------------------------------------");
-	printf("\n area of triangle is %d",area);
+	printf("\n area of triangle is %f",area);
 	printf("\n");
 	printf("--------------------------------------");
 }
