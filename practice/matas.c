@@ -1,8 +1,11 @@
 #include<stdio.h>
 
+//#define x 2
+
 //matrix addition and subtraction
-void matadd(int **a ,int **b);
+void matadd(int[][] ,int[][]);
 //void matsub(int**,int**);
+
 
 int main()
 {
