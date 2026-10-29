@@ -3,7 +3,8 @@
 //#define x 2
 
 //matrix addition and subtraction
-void matadd(int[][] ,int[][]);
+void matadd(int[][2] ,int[][2]);
+void matsub(int[][2] ,int[][2]);
 //void matsub(int**,int**);
 
 
@@ -20,7 +21,7 @@ int main()
 	//call add fun pass args
 	
 	matadd(a,b);
-	
+	matsub(a,b);
 	//call sub fun pass args
 	
 	//matsub(&a,&b);
@@ -56,6 +57,32 @@ void matadd( int a[2][2], int b[2][2])
 		}
 		printf("\n");
 		
+	}
+}
+
+
+void matsub(int a[2][2],int b[2][2])
+{
+	int diff[2][2];
+	
+	
+	for(int i=0;i<2;i++)
+	{
+		for(int j=0;j<2;j++)
+		{
+			diff[i][j]=a[i][j]-b[i][j];
+		}
+	}
+	
+	printf("\n the diff is\n");
+	for(int i=0;i<2;i++)
+	{
+		for(int j=0;j<2;j++)
+		{
+			printf("%d ", diff[i][j]);
+		}
+		
+		printf("\n");
 	}
 }
 
