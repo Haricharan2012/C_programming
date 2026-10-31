@@ -10,11 +10,31 @@ void matsub(int[][2] ,int[][2]);
 
 int main()
 {
-	int a[2][2]= {{2,2},
-		      {3,3}};
+	int a[2][2]; //= {{2,2},
+		      //{3,3}};
 		      
-	int b[2][2]= {{1,1},
-	              {1,1}};
+	int b[2][2];  //= {{1,1},
+	              //{1,1}};
+	
+	
+	printf("\n enter first 2d array");
+	for(int i=0;i<2;i++)
+	{
+		for(int j=0;j<2;j++)
+		{
+			scanf("%d",&a[i][j]);
+		}
+	}
+	
+	
+	printf("\n enter second 2d array");
+	for(int i=0;i<2;i++)
+	{
+		for(int j=0;j<2;j++)
+		{
+			scanf("%d",&b[i][j]);
+		}
+	}
 	
 	
 	
@@ -25,7 +45,6 @@ int main()
 	//call sub fun pass args
 	
 	//matsub(&a,&b);
-	
 	
 	
 }
